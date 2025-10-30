@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxmirciypd8kn"]
+
+[ext_resource type="Script" uid="uid://dddaeb4wd5yfk" path="res://Personaje/CameraFollow.gd" id="1_50oil"]
+[ext_resource type="PackedScene" uid="uid://bnqqjg1pf20l6" path="res://Suelo/puente.tscn" id="1_57nca"]
+[ext_resource type="Texture2D" uid="uid://h4t2l8scxnyw" path="res://assets/Kenney/Decoraciones/background_cloudA.png" id="1_qtj6q"]
+[ext_resource type="Texture2D" uid="uid://3hr0n1ktkdvl" path="res://assets/Kenney/Decoraciones/tile_flag.png" id="2_20urx"]
+[ext_resource type="Texture2D" uid="uid://d1cfnetye3h6w" path="res://assets/Kenney/Decoraciones/background_cloudB.png" id="2_50oil"]
+[ext_resource type="PackedScene" uid="uid://ctf54k2b4xs06" path="res://Suelo/plataform.tscn" id="2_b812v"]
+[ext_resource type="PackedScene" uid="uid://r0b5qiox22qe" path="res://Suelo/top.tscn" id="3_lqtgv"]
+[ext_resource type="Texture2D" uid="uid://c30imyif4hsad" path="res://assets/Kenney/Decoraciones/background_tree.png" id="3_x0q2t"]
+[ext_resource type="Texture2D" uid="uid://br0uugia5wje8" path="res://assets/Kenney/Decoraciones/background_treeLarge.png" id="4_20urx"]
+[ext_resource type="PackedScene" uid="uid://3xkofflqa21x" path="res://Personaje/personaje.tscn" id="4_eh2fs"]
+[ext_resource type="PackedScene" uid="uid://c36ixtfdj21f2" path="res://Enemigos/boss.tscn" id="11_x0q2t"]
+[ext_resource type="PackedScene" uid="uid://c07f8mxt3l1t3" path="res://ui/canvas_layer.tscn" id="12_20urx"]
+[ext_resource type="Script" uid="uid://ds40q60iypin4" path="res://Niveles/game_controller.gd" id="13_3fqcr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fqcr"]
+size = Vector2(130, 133.87599)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
+position = Vector2(469, 251)
+script = ExtResource("1_50oil")
+object_to_follow = NodePath("../Personaje")
+
+[node name="TileFlag" type="Sprite2D" parent="."]
+position = Vector2(479, -101)
+scale = Vector2(0.5, 0.516)
+texture = ExtResource("2_20urx")
+
+[node name="Area2D" type="Area2D" parent="TileFlag"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileFlag/Area2D"]
+position = Vector2(1, -0.8914795)
+shape = SubResource("RectangleShape2D_3fqcr")
+
+[node name="Decoraccion" type="Node2D" parent="."]
+
+[node name="BackgroundCloudA" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(150, 216)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qtj6q")
+
+[node name="BackgroundCloudB" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(952, 115)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_50oil")
+
+[node name="BackgroundCloudA2" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(193, 18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qtj6q")
+
+[node name="BackgroundCloudB2" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(135, 5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_50oil")
+
+[node name="BackgroundTree" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(214, 500)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0q2t")
+
+[node name="BackgroundTreeLarge" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(1139, 438)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_20urx")
+
+[node name="BackgroundTree2" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(1047, 187)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0q2t")
+
+[node name="BackgroundTreeLarge2" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(1078, 188)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_20urx")
+
+[node name="BackgroundTree3" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(-19, 521)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0q2t")
+
+[node name="BackgroundTreeLarge3" type="Sprite2D" parent="Decoraccion"]
+position = Vector2(12, 522)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_20urx")
+
+[node name="Suelos" type="Node2D" parent="."]
+
+[node name="Puente" parent="Suelos" instance=ExtResource("1_57nca")]
+position = Vector2(656.00006, 622.00006)
+rotation = -0.06981316
+
+[node name="Plataforma" parent="Suelos" instance=ExtResource("2_b812v")]
+position = Vector2(468.00003, 412)
+rotation = 0.06981316
+scale = Vector2(0.8000001, 0.8000001)
+
+[node name="Plataforma3" parent="Suelos" instance=ExtResource("2_b812v")]
+position = Vector2(715, 296)
+rotation = -0.06981316
+scale = Vector2(0.8000001, 0.8000001)
+
+[node name="Plataforma4" parent="Suelos" instance=ExtResource("2_b812v")]
+position = Vector2(478.00003, 182)
+rotation = 0.06981316
+scale = Vector2(0.8000001, 0.8000001)
+
+[node name="Plataforma5" parent="Suelos" instance=ExtResource("2_b812v")]
+position = Vector2(710, 67.99999)
+rotation = -0.06981316
+scale = Vector2(0.8000001, 0.8000001)
+
+[node name="Plataforma2" parent="Suelos" instance=ExtResource("3_lqtgv")]
+position = Vector2(116, -62.000004)
+rotation = 0.017453292
+
+[node name="Plataforma2" parent="Suelos/Plataforma2" instance=ExtResource("3_lqtgv")]
+position = Vector2(240.08559, 2.8103561)
+rotation = 0.017453292
+
+[node name="Plataforma2" parent="Suelos/Plataforma2/Plataforma2" instance=ExtResource("3_lqtgv")]
+position = Vector2(240.06812, 1.8105103)
+rotation = 0.017453292
+
+[node name="Plataforma2" parent="Suelos/Plataforma2/Plataforma2/Plataforma2" instance=ExtResource("3_lqtgv")]
+position = Vector2(240.06812, 1.8105103)
+rotation = 0.017453292
+
+[node name="Personaje" parent="." instance=ExtResource("4_eh2fs")]
+position = Vector2(138, 530)
+
+[node name="Boss" parent="." instance=ExtResource("11_x0q2t")]
+position = Vector2(151, -150)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_20urx")]
+
+[node name="GameController" type="Node2D" parent="."]
+script = ExtResource("13_3fqcr")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="TileFlag/Area2D" to="Personaje" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="TileFlag/Area2D" to="GameController" method="_on_area_2d_body_entered"]
+[connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
+[connection signal="player_life_update" from="GameController" to="CanvasLayer" method="_on_game_controller_player_life_update"]
+[connection signal="time_update" from="GameController" to="CanvasLayer" method="_on_game_controller_time_update"]
+[connection signal="timeout" from="Timer" to="GameController" method="_on_timer_timeout"]

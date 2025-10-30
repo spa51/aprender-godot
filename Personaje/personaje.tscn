@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3xkofflqa21x"]
+
+[ext_resource type="Texture2D" uid="uid://cip7bon8rt28k" path="res://assets/Kenney/Character/character_roundGreen.png" id="1_4e5bt"]
+[ext_resource type="Script" uid="uid://g5gaqwv0w2c0" path="res://Personaje/personaje.gd" id="1_imvb3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltgau"]
+radius = 18.0
+height = 58.0
+
+[node name="Personaje" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_imvb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4e5bt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ltgau")

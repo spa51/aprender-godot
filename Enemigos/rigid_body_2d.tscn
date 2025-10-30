@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5mvip6ay86i4"]
+
+[ext_resource type="Script" uid="uid://d2rdbo43qflt4" path="res://Enemigos/rigid_body_2d.gd" id="1_ahv5m"]
+[ext_resource type="Texture2D" uid="uid://ci2u4kf8sxlc1" path="res://assets/Kenney/Enemigos/character_handYellow.png" id="1_ilgw4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahv5m"]
+radius = 15.0
+
+[node name="Barril" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ahv5m")
+
+[node name="CharacterHandYellow" type="Sprite2D" parent="."]
+texture = ExtResource("1_ilgw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahv5m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
